@@ -17,9 +17,9 @@ int main(int argc, char **argv)
 	struct sockaddr_un qmp;
 	char str[1024], strs[4096];	
 
-	if (argc != 2)
+	if (argc != 4)
 	{
-		printf("usage: %s <qmeu guest agent sock file>[/tmp/qga.sock] \n", *argv+2);  //usage() : function to do this; now it is just a sample;
+		printf("usage: %s  <qmeu guest agent sock file[/tmp/qga.sock]>  <user[\'root\']>  <passwd[\'******\']>\n", *argv+2);  //usage() : function to do this; now it is just a sample;
 		exit(-1);
 	}
 	/*
