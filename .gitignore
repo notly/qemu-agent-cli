@@ -1,2 +1,4 @@
 qemu-agent-test
 qemu-agent-passwd
+b64
+gdecode-base64
