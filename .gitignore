@@ -2,3 +2,8 @@ qemu-agent-test
 qemu-agent-passwd
 b64
 gdecode-base64
+char_test
+char_test.c
+decode.cpp
+qemu-ga
+qemu-passwd.tar.xz

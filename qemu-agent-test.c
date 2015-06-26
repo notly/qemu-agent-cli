@@ -49,7 +49,9 @@ int main(int argc, char **argv)
 		if(strlen(str) == 1 || strchr(str, '{') == NULL || strrchr(str, '}') == NULL )  {
 			if(!strncmp(str, "clear", 5))
 			{ write(1, "\33[H\33[2J", 7); continue; }
-			printf("\nreturn:\t plz input the json code!! \nlike this: \n\{\"execute\": \"guest-info\"\}\n");
+			if(!(strncmp(str, "quit", 4) && strncmp(str, "exit", 4)))
+			{ break;}
+			printf("\nreturn:\t plz input the json code!! \nlike this: \n{\"execute\": \"guest-info\"}\n");
 			continue;
 		}
 		if ( send(sock, str, strlen(str), 0) == -1) {

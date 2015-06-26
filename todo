@@ -1,0 +1,8 @@
+### todo ###
+
+1. qemu-agent-test: - input null EOF change to not connect; or error
+		    - input parse the input string;
+2. qemu-agent-passwd - 3 ways: 1. include pass as a args
+			       2. input the pass without echo
+			       3. read from file or else
+
