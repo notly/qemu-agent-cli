@@ -1,0 +1,14 @@
+all:  qemu-agent-key github_commits libqemub64.so
+
+# make shared library
+# export LD_LIBRARY_PATH=.
+
+qemu-agent-key: qemu-agent-key.c qemu-b64.c qemu-b64.h libqemub64.so
+	gcc qemu-agent-key.c -L . -lqemub64 -o qemu-agent-key
+libqemub64.so: qemu-b64.c qemu-b64.h
+	gcc -shared -fPIC  -o libqemub64.so qemu-b64.c
+
+github_commits: github_commits.c
+	gcc -o github_commits github_commits.c -ljansson -lcurl
+clean:
+	rm -rf github_commits qemu-agent-key libqemub64.so

@@ -7,3 +7,11 @@ char_test.c
 decode.cpp
 qemu-ga
 qemu-passwd.tar.xz
+json-tests/github_commits
+json-tests/github_commits2.c
+json-tests/json
+json-tests/qemu-agent-key
+json-tests/test
+json-tests/libqemub64.so
+json-tests/qemu-agent-key.tar.xz
+
