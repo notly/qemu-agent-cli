@@ -14,4 +14,5 @@ json-tests/qemu-agent-key
 json-tests/test
 json-tests/libqemub64.so
 json-tests/qemu-agent-key.tar.xz
-
+20
+2048
