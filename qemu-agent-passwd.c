@@ -47,17 +47,17 @@ static int encode(char *instr, char *outstr);
 
 int main(int argc, char **argv)
 {
-	int sock, t, len;	
+	int sock, t, len;
 	struct sockaddr_un qmp;
-	char str[1024], strs[4096];	
-	
-	
+	char str[1024], strs[4096];
+
+
 	if (argc != 4)
 	{
 		printf("usage: %s  <qmeu guest agent sock file[/tmp/qga.sock]>  <user[\'root\']>  <passwd[\'******\']>\n", *argv+2);  //usage() : function to do this; now it is just a sample;
 		exit(-1);
 	}
-	
+
 	// create socket & connect
 
 	if ((sock = socket(AF_UNIX, SOCK_STREAM, 0)) == -1) {
@@ -74,7 +74,7 @@ int main(int argc, char **argv)
 		perror("connect");
 		exit(-4);
 	}
-	
+
 // exec json command
 /*
 	while(printf("qmp: "), fgets(str, 1024, stdin), !feof(stdin)) {
@@ -102,7 +102,7 @@ int main(int argc, char **argv)
 	char *pass = argv[3];
 	while(*pass)
 	{
-		*pas++ = base64_decode_value(*pass++);	
+		*pas++ = base64_decode_value(*pass++);
 	}
 	printf("code::::%s\n", base);
 
@@ -111,7 +111,7 @@ int main(int argc, char **argv)
 	char *pass = malloc(sizeof(char)*100);
 	char command[1024] = "{ \"execute\": \"guest-set-user-password\", \"arguments\": { \"crypted\": false,  \"username\": \"" ; // root\", \"password\": \""; //\" }}";
 	int command_len = strlen(command);
-	
+
 	memset(pass, 0, 100);
 	encode(*(argv+3), pass);
 	//	encodeblock(base, pass, strlen(base));
@@ -122,7 +122,7 @@ int main(int argc, char **argv)
 	strncat(command, *(argv + 2), strlen(*(argv+2)));
 	strcat(command, "\",  \"password\": \"");
 	strncat(command, pass, strlen(pass));
-	
+
 	strcat(command, "\" }}");
 
 	//  send command;
@@ -174,9 +174,9 @@ static int encode(char *ins, char *outs)
 {
 	unsigned char in[3];
 	unsigned char out[4];
-	int i = 0;	
+	int i = 0;
 	char *tmp = outs;
-	
+
 	*in = (unsigned char) 0;
 	*out = (unsigned char) 0;
 	while(*ins) {
